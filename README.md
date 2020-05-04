@@ -9,7 +9,7 @@
 ## Build
 
 * Make: `make`
-* Program: push reset on board then `./protrinket_ul myprogram.hex` while red LED pulses.
+* Program: push reset on board then `./protrinket_ul myprogram.hex cu.usbserial` while red LED pulses.
 
 ## Links
 
