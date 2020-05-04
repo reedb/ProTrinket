@@ -2,17 +2,18 @@
 
 ## Prerequisites
 
-- Arduino IDE installed
+- Arduino IDE installed (Edit makefile to point to instalation)
 - ProTrinket dev board
 - USB to serial cable connected to ProTrinket
 
 ## Build
 
-* Make: make
+* Make: `make`
 * Program: push reset on board then `./protrinket_ul myprogram.hex` while red LED pulses.
 
 ## Links
 
+- Edam's Arduino make file: https://github.com/sudar/Arduino-Makefile
 - TextMate bundle for Arduino: https://github.com/nasser/arduino.tmbundle
 - Quick start (with IDE): https://learn.adafruit.com/introducing-pro-trinket 
 
