@@ -5,7 +5,7 @@ ARDUINODIR := /Applications/Arduino.app/Contents/Java
 ARDUINOCONST := 189
 AVRTOOLSPATH := $(ARDUINODIR)/hardware/tools/avr/bin
 BOARD := protrinket5
-BOARDSFILE := /Users/reedb/projects/trinket_pro/adafruit_board_defs/boards.txt
+BOARDSFILE := ./boards.txt
 LIBRARYPATH :=  $(ARDUINODIR)/libraries
-SERIALDEV := usbserial
-include /Users/reedb/projects/trinket_pro/arduino.mk
+#SERIALDEV := usbserial
+include arduino.mk
