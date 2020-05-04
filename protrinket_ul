@@ -1,0 +1,40 @@
+#! /usr/bin/env bash 
+
+# On OSX, /dev/cu.* gives you exclusive access to the device.
+# On OSX:   d /dev/cu.*ser* 
+# On Linux: d /dev/ttyUSB* 
+
+
+echo "Upload program to pro-trinket board using PL-2303HX USB2Serial adapter."
+
+if [ "$#" -ne 2 ]; 
+  then
+    echo "Incorect number of arguments supplied. Need 2 arguments, hex file name and serial device name to upload."
+    echo "Example: ./protrinket_ul main.hex cu.usbserial"
+    exit 1
+fi  
+
+if [[ "$1" != *.hex ]]
+  then
+    echo "Upload file name must be hex format with '.hex' file name extension."
+    exit 1
+fi  
+
+if [ ! -f /dev/"$2" ]; then
+    echo /dev/"$2" does not exist.
+    case $(uname | tr '[:upper:]' '[:lower:]') in
+      linux*)
+        echo Running under Linux.
+        ;;
+      darwin*)
+        echo "Searching for usb to serial devices (OSX):"
+        ls /dev/cu.*ser* 
+        ;;
+      *)
+        echo Running under unknow/unsupported OS.
+        ;;
+    esac    
+    exit 1
+fi
+
+/Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avrdude -v -patmega328p -P/dev/"$2" -Cavrdude.conf -carduino -b115200 -D -Uflash:w:"$1":i
