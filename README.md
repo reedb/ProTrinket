@@ -1,5 +1,13 @@
 # ProTrinket - A simple commandline environment for programming cheap dev boards.
 
+## Prerequisites
+
+- Arduino IDE installed
+- ProTrinket dev board
+- USB to serial cable connected to ProTrinket
+
+## Build
+
 * Make: make
 * Program: push reset on board then `./protrinket_ul myprogram.hex` while red LED pulses.
 
